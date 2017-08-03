@@ -40,7 +40,7 @@ C SDK for wcs
 	wcs_Global_Cleanup ();
 	接口在省略号部分调用，该初始话要在主线程中调用一次，最好不要在多线程中多次调用，否则会出现不可预料的错误，该问题是由cURL中的一些接口不是线程安全的引起。
 	
-### 详细实例参考：c_sdk/demo/test.c
+### 详细实例参考：demo/test.c
 
 
 
@@ -57,10 +57,18 @@ C SDK for wcs
 列取资源 |	wcs_Error wcs_RS_List (wcs_Client * self, wcs_RS_ListRet * ret, const char *bucketName, wcs_Common_Param * param, const char *mgrHost)|
 移动资源	| wcs_Error wcs_RS_Move (wcs_Client * self, const char *tableNameSrc, const char *keySrc, const char *tableNameDest, const char *keyDest, const char *mgrHost)|
 更新镜像资源   |	wcs_Error wcs_RS_UpdateMirror(wcs_Client * self, wcs_RS_StatRet * ret, const char *bucketName, const char **fileNameList, unsigned int fileNum, const char *mgrHost)|
-音视频操作   |	wcs_Error wcs_Fops_Media (wcs_Client * self, wcs_FOPS_Response * ret, wcs_FOPS_MediaParam *param, const char *mgrHost)|
-抓取资源   |	wcs_Error wcs_Fops_Fetch(wcs_Client * self, wcs_FOPS_Response * ret,  wcs_FOPS_FetchParam *ops[], unsigned int opsNum, const char *mgrHost )|
+音视频操作   |	wcs_Error wcs_Fops_Media (wcs_Client * self, wcs_FOPS_Response * ret, wcs_FOPS_MediaParam *param, const char *mgrHost)| fops拼装参考wcsAPI文档 
+抓取资源   |	wcs_Error wcs_Fops_Fetch(wcs_Client * self, wcs_FOPS_Response * ret,  wcs_FOPS_FetchParam *ops[], unsigned int opsNum, const char *mgrHost )| fops拼接参考wcsAPI 文档
 复制资源   |	wcs_Error wcs_RS_Copy (wcs_Client * self, const char *tableNameSrc, const char *keySrc, const char *tableNameDest, const char *keyDest, const char *mgrHost)|
 Base64编码    |	wcs_Error wcs_Encode_Base64(int argc, char **argv)|
 
+抓取资源: https://wcs.chinanetcenter.com/document/API/Fmgr/fetch
+音视频：https://wcs.chinanetcenter.com/document/API/Video-op
 
+### 实例：
+1. 音视频的 fops
+YXZ0aHVtYi9mbHYvdmIvNjRrfHNhdmVzL2FHRnNaWGwwWlhOME9uUmxjM1JXYVdSbGJ3PT07YXZ0aHVtYi9tNGEvdmIvMTI4S3xzYXZlcy9hR0ZzWlhsMFpYTjBPblJsYzNSQmRXUnBidz09
 
+2. 抓取资源fops
+fetchURL/aHR0cDovL2ltYWdlcy53Lndjc2FwaS5iaXoubWF0b2Nsb3VkLmNvbS8xLnBuZw==/bucket/aGFsZXl0ZXN0/key/dGVzdE1lZGlh/prefix/bWVkaWE=/md5/aa36f4e18a13762d77cce9e749976b3c/decompression/zip
+多个用；隔开
