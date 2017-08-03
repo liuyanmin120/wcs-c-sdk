@@ -60,9 +60,7 @@ static wcs_Error wcs_Io_call (wcs_Client * self, wcs_Json ** ret, struct curl_ht
 	wcs_Error err;
 	struct curl_slist *headers = NULL;
 	const char *upHost = NULL;
-	wcs_Rgn_HostVote upHostVote;
 
-	wcs_Zero(upHostVote);
 	CURL *curl = wcs_Client_reset (self, NULL);
 
 	// Bind the NIC for sending packets.
@@ -100,7 +98,8 @@ static wcs_Error wcs_Io_call (wcs_Client * self, wcs_Json ** ret, struct curl_ht
 
 	if ((upHost = extra->upHost) == NULL)
 	{
-		upHost = WCS_UP_HOST;
+		//upHost = WCS_UP_HOST;
+		upHost = wcs_String_Concat2(WCS_UP_HOST, "/file/upload");
 
 		if (upHost == NULL)
 		{
@@ -191,7 +190,7 @@ wcs_Error wcs_Io_PutFile (wcs_Client * self, cJSON ** ret, const char *uptoken, 
 	{
 		curl_formadd (&form.formpost, &form.lastptr, CURLFORM_COPYNAME, "file", CURLFORM_FILE, localFile, CURLFORM_FILENAME, localFileName, CURLFORM_END);
 	}
-
+#if 0
 	//for multi-region stroage
 	if (wcs_Rgn_IsEnabled ())
 	{
@@ -201,7 +200,7 @@ wcs_Error wcs_Io_PutFile (wcs_Client * self, cJSON ** ret, const char *uptoken, 
 		}
 	}
 	
-
+#endif
 	err = wcs_Io_call (self, ret, form.formpost, extra);
 
 	// For aborting uploading file.

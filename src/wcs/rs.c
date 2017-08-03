@@ -199,7 +199,7 @@ wcs_Error wcs_RS_Stat (wcs_Client * self, cJSON ** ret, const char *tableName, c
 	}
 	else
 	{
-		url = wcs_String_Concat3 (WCS_RS_HOST, "/stat/", entryURIEncoded);
+		url = wcs_String_Concat3 (WCS_Mgr_HOST, "/stat/", entryURIEncoded);
 	}
 
 	wcs_Free (entryURI);
@@ -237,7 +237,7 @@ wcs_Error wcs_RS_List (wcs_Client * self, cJSON ** ret, const char *bucketName, 
 	}
 	else
 	{
-		url = wcs_String_Concat3 (WCS_RS_HOST, "/list?bucket=", bucketName);
+		url = wcs_String_Concat3 (WCS_Mgr_HOST, "/list?bucket=", bucketName);
 	}
 	if (NULL != param)
 	{
@@ -349,7 +349,7 @@ const char **fileNameList, unsigned int fileNum, const char *mgrHost)
 	}
 	else
 	{
-		url = wcs_String_Concat3 (WCS_RS_HOST, "/prefetch/", encode);
+		url = wcs_String_Concat3 (WCS_Mgr_HOST, "/prefetch/", encode);
 	}
 
 	wcs_Free(encode);	
@@ -387,7 +387,7 @@ wcs_Error wcs_RS_Delete (wcs_Client * self, const char *tableName, const char *k
 	}
 	else
 	{
-		url = wcs_String_Concat3 (WCS_RS_HOST, "/delete/", entryURIEncoded);
+		url = wcs_String_Concat3 (WCS_Mgr_HOST, "/delete/", entryURIEncoded);
 	}
 
 	wcs_Free (entryURI);
@@ -427,7 +427,7 @@ wcs_Error wcs_RS_Copy (wcs_Client * self, const char *tableNameSrc, const char *
 	}
 	else
 	{
-		url = wcs_String_Concat3 (WCS_RS_HOST, "/copy/", urlPart);
+		url = wcs_String_Concat3 (WCS_Mgr_HOST, "/copy/", urlPart);
 	}
 
 	free (entryURISrc);
@@ -468,7 +468,7 @@ wcs_Error wcs_RS_Move (wcs_Client * self, const char *tableNameSrc, const char *
 	}
 	else
 	{
-	 	url = wcs_String_Concat3 (WCS_RS_HOST, "/move/", urlPart);
+	 	url = wcs_String_Concat3 (WCS_Mgr_HOST, "/move/", urlPart);
 	 }
 
 	free (entryURISrc);

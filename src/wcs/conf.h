@@ -20,11 +20,8 @@ extern "C"
 	WCS_DLLAPI extern const char *WCS_ACCESS_KEY;
 	WCS_DLLAPI extern const char *WCS_SECRET_KEY;
 
-	WCS_DLLAPI extern const char *WCS_RS_HOST;
+	WCS_DLLAPI extern const char *WCS_Mgr_HOST;
 	WCS_DLLAPI extern const char *WCS_UP_HOST;
-	WCS_DLLAPI extern const char *WCS_UC_HOST;
-	WCS_DLLAPI extern const char *WCS_API_HOST;
-	WCS_DLLAPI extern const char *WCS_FUSION_HOST;
 
 #ifdef __cplusplus
 }

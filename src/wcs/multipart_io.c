@@ -7,10 +7,10 @@
  ============================================================================
  */
 
-#include "region.h"
 #include "multipart_io.h"
 #include "../base/inifile.h"
 #include "rs.h"
+#include "conf.h"
 #include <curl/curl.h>
 #include <sys/stat.h>
 
@@ -502,6 +502,10 @@ static wcs_Error wcs_Multipart_PutExtra_Init (wcs_Multipart_PutExtra * self, wcs
 	{
 		self->blockSize  = defaultBlockSize;
 	}
+	if (NULL == self->upHost)
+	{
+		self->upHost = WCS_UP_HOST;
+	}
 	//Generate UUID
 
 	unsigned char *uuid = NULL;
@@ -866,7 +870,6 @@ static wcs_Error wcs_Multipart_Mkfile2 (wcs_Client * c, wcs_Multipart_PutRet * r
 	size_t i, blkCount = 0; //extra->blockCnt;
 	wcs_Json *root = NULL;
 	wcs_Error err;
-	wcs_Rgn_HostVote upHostVote;
 	const char *upHost = NULL;
 	wcs_Multipart_BlkputRet *prog = NULL;
 	wcs_Buffer url, body;
@@ -876,7 +879,6 @@ static wcs_Error wcs_Multipart_Mkfile2 (wcs_Client * c, wcs_Multipart_PutRet * r
 	int bodyLen = 0;
 
 	wcs_Buffer_Init (&url, 2048);
-	wcs_Zero (upHostVote);
 	wcs_Zero (extraHeader);
 	wcs_Zero(respRet);
 	wcs_Zero(err);
@@ -1412,6 +1414,7 @@ wcs_Error wcs_Multipart_Put (wcs_Client * self, wcs_Multipart_PutRet * ret, cons
 		}
 	}
 	extra.uptoken = (char*)uptoken;
+
 	nfails = 0;
 	ninterrupts = 0;
 

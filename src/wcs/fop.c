@@ -91,7 +91,7 @@ wcs_Error wcs_Fops_Fetch(wcs_Client * self, wcs_FOPS_Response * ret,
 	}
 	else
 	{
-		url = wcs_String_Concat2 (WCS_API_HOST, "/fmgr/fetch");
+		url = wcs_String_Concat2 (WCS_Mgr_HOST, "/fmgr/fetch");
 	}
 	self->method = HTTP_METHOD_POST;
 	
@@ -193,7 +193,7 @@ wcs_Error wcs_Fops_Media (wcs_Client * self, wcs_FOPS_Response * ret,
     }
     else
     {
-        url = wcs_String_Concat2 (WCS_API_HOST, "/fops");
+        url = wcs_String_Concat2 (WCS_Mgr_HOST, "/fops");
     }
     self->method = HTTP_METHOD_POST;
 

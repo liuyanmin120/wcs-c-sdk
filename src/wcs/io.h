@@ -11,7 +11,6 @@
 #define WCS_IO_H
 
 #include "http.h"
-#include "region.h"
 #include "reader.h"
 #include "../cJSON/cJSON.h"
 
