@@ -48,26 +48,19 @@ C SDK for wcs
 
 接口功能 | 接口函数名称 | 备注
 ---|---|---
-1. 生成上传凭证   |	char *wcs_RS_PutPolicy_Token (wcs_RS_PutPolicy * auth, wcs_Mac * mac)    |
-2. 普通文件上传   |	wcs_Error wcs_Io_PutFile (wcs_Client * self, wcs_Io_PutRet * ret, const char *uptoken, const char *key, const char *localFile, wcs_Io_PutExtra * extra)
-3. 分片上传   |	wcs_Error wcs_Multipart_PutFile (wcs_Client * self, wcs_Multipart_PutRet * ret, const char *uptoken	, const char *key, const char *localFile, wcs_Multipart_PutExtra * extra) | 注：该接口通过多线程分片上传，可以更改 最大线程数：wcs_Multipart_MaxThreadNum
-4. 断点续传 |	wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self, 	wcs_Multipart_PutRet * ret)
-5. 删除文件 |	wcs_Error wcs_RS_Delete (wcs_Client * self, const char *tableName, const char *key, const char *mgrHost)
-6. 获取文件信息 |	wcs_Error wcs_RS_Stat (wcs_Client * self, wcs_RS_StatRet * ret, const char *tableName, const char *key, const char *mgrHost)
-7. 列取资源 |	wcs_Error wcs_RS_List (wcs_Client * self, wcs_RS_ListRet * ret, const char *bucketName, wcs_Common_Param * param, const char *mgrHost)
-8. 移动资源	| wcs_Error wcs_RS_Move (wcs_Client * self, const char *tableNameSrc, const char *keySrc, const char *tableNameDest, const char *keyDest, const char *mgrHost)
-9. 更新镜像资源   |	wcs_Error wcs_RS_UpdateMirror(wcs_Client * self, wcs_RS_StatRet * ret, const char *bucketName, const char **fileNameList, unsigned int fileNum, const char *mgrHost)
-10. 音视频操作   |	wcs_Error wcs_Fops_Media (wcs_Client * self, wcs_FOPS_Response * ret, wcs_FOPS_MediaParam *param, const char *mgrHost)
-11. 抓取资源   |	wcs_Error wcs_Fops_Fetch(wcs_Client * self, wcs_FOPS_Response * ret,  wcs_FOPS_FetchParam *ops[], unsigned int opsNum, const char *mgrHost )
-12. 复制资源   |	wcs_Error wcs_RS_Copy (wcs_Client * self, const char *tableNameSrc, const char *keySrc, const char *tableNameDest, const char *keyDest, const char *mgrHost)
-13. Base64编码    |	wcs_Error wcs_Encode_Base64(int argc, char **argv)
-
-
-
-实例：
-
-
-
+生成上传凭证   |	char *wcs_RS_PutPolicy_Token (wcs_RS_PutPolicy * auth, wcs_Mac * mac)    |
+普通文件上传   |	wcs_Error wcs_Io_PutFile (wcs_Client * self, wcs_Io_PutRet * ret, const char *uptoken, const char *key, const char *localFile, wcs_Io_PutExtra * extra)|
+分片上传   |	wcs_Error wcs_Multipart_PutFile (wcs_Client * self, wcs_Multipart_PutRet * ret, const char *uptoken	, const char *key, const char *localFile, wcs_Multipart_PutExtra * extra) | 注：该接口通过多线程分片上传，可以更改 最大线程数：wcs_Multipart_MaxThreadNum|
+断点续传 |	wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self, 	wcs_Multipart_PutRet * ret)|
+删除文件 |	wcs_Error wcs_RS_Delete (wcs_Client * self, const char *tableName, const char *key, const char *mgrHost)|
+获取文件信息 |	wcs_Error wcs_RS_Stat (wcs_Client * self, wcs_RS_StatRet * ret, const char *tableName, const char *key, const char *mgrHost)|
+列取资源 |	wcs_Error wcs_RS_List (wcs_Client * self, wcs_RS_ListRet * ret, const char *bucketName, wcs_Common_Param * param, const char *mgrHost)|
+移动资源	| wcs_Error wcs_RS_Move (wcs_Client * self, const char *tableNameSrc, const char *keySrc, const char *tableNameDest, const char *keyDest, const char *mgrHost)|
+更新镜像资源   |	wcs_Error wcs_RS_UpdateMirror(wcs_Client * self, wcs_RS_StatRet * ret, const char *bucketName, const char **fileNameList, unsigned int fileNum, const char *mgrHost)|
+音视频操作   |	wcs_Error wcs_Fops_Media (wcs_Client * self, wcs_FOPS_Response * ret, wcs_FOPS_MediaParam *param, const char *mgrHost)|
+抓取资源   |	wcs_Error wcs_Fops_Fetch(wcs_Client * self, wcs_FOPS_Response * ret,  wcs_FOPS_FetchParam *ops[], unsigned int opsNum, const char *mgrHost )|
+复制资源   |	wcs_Error wcs_RS_Copy (wcs_Client * self, const char *tableNameSrc, const char *keySrc, const char *tableNameDest, const char *keyDest, const char *mgrHost)|
+Base64编码    |	wcs_Error wcs_Encode_Base64(int argc, char **argv)|
 
 
 
