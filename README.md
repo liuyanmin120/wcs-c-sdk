@@ -2,7 +2,7 @@
 C SDK for wcs
 
 
-# 概要:
+### 概要:
 
 本SDK使用符合C89标准的C语言实现。
 -  SDK主要包含以下几方面内容：
@@ -12,15 +12,15 @@ C SDK for wcs
 	4. 数据处理（视频转码，截图等）: src/wcs/fop.c
 
 
-# 安装：
+### 安装：
 	C-SDK使用了cURL, OpenSSL ,使用时需要自行安装前述依赖库。
 	GCC编译选项：-lcurl -lssl -lcrypto -lm 
 	如果项目编译时出现连接等错误，需要先检查依赖库和编译选项是否正确。
 
-# WCS存储相关信息：
+### WCS存储相关信息：
 调用接口需要用到ACCESS_KEY ，SECRET_KEY ，上传域名和管理域名，这些可通过网宿官方获取。
 
-# LOG模块: 
+### LOG模块: 
     当出现问题需要分析时可以打开Log, 分为6个等级,可以选择是否写入文件(为了性能,平常不建议配置写入文件),
 	配置文件(LogConfig.ini): [SDKLogConfig]
 				LOG_LEVEL=5 //0 打印的最多，建议平常设置为5
@@ -30,7 +30,7 @@ C SDK for wcs
  	void wcs_Log_Init(char *logConfigFile, FILE *file); // logConfigFile 为上述配置文件的路径和名字，file只传入定义即可，不要打开文件，主要用与文件关闭
 	void wcs_close_Logfile(FILE *file);
 
-# 接口调用
+### 接口调用
     初始化和反初始化：
 	wcs_Global_Init (0);
 	wcs_MacAuth_Init ();
@@ -40,11 +40,11 @@ C SDK for wcs
 	wcs_Global_Cleanup ();
 	接口在省略号部分调用，该初始话要在主线程中调用一次，最好不要在多线程中多次调用，否则会出现不可预料的错误，该问题是由cURL中的一些接口不是线程安全的引起。
 	
-# 详细实例参考：c_sdk/demo/test.c
+### 详细实例参考：c_sdk/demo/test.c
 
 
 
-# API 概述(注：各接口传入的ret参数需要初始化)：
+### API 概述(注：各接口传入的ret参数需要初始化)：
 
 接口功能 | 接口函数名称 | 备注
 -------|---|---
