@@ -23,7 +23,8 @@
 extern "C"
 {
 #endif
-
+extern char *userAgent;
+extern const char *version;
 extern void wcs_Global_Init (long flags);
 extern void wcs_Global_Cleanup ();
 

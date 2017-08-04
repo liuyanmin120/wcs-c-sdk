@@ -66,15 +66,15 @@ void wcs_Mutex_Unlock (wcs_Mutex * self)
 
 /*============================================================================*/
 /* Global */
+char *userAgent = NULL;
+const char *version = "1.0.0";
 
 void wcs_Buffer_formatInit ();
 
 void wcs_Global_Init (long flags)
 {
 	wcs_Buffer_formatInit ();
-#if 0
-	wcs_Rgn_Enable ();
-#endif
+	userAgent = wcs_String_Concat3("User-Agent: WCS-C-SDK-", version,"(http://wcs.chinanetcenter.com/)");
 	curl_global_init (CURL_GLOBAL_ALL);
 }
 
@@ -497,7 +497,7 @@ static wcs_Error wcs_Client_callWithBody (wcs_Client * self, wcs_Json ** ret,
 		}
 
 	}
-
+	headers = curl_slist_append (headers, userAgent);
 	curl_easy_setopt (curl, CURLOPT_HTTPHEADER, headers);
 
 	if ((wcs_True == self->multiTask) && (NULL !=  extraHeader->resph) && 
@@ -595,6 +595,7 @@ wcs_Error wcs_Client_Call (wcs_Client * self, wcs_Json ** ret, const char *url)
 			return err;
 		}
 	}
+	headers = curl_slist_append (headers, userAgent);
 	curl_easy_setopt (curl, CURLOPT_HTTPHEADER, headers);
 
 	err = wcs_callex (curl, &self->b, &self->root, wcs_False, &self->respHeader);

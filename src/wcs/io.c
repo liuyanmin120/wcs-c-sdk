@@ -111,6 +111,7 @@ static wcs_Error wcs_Io_call (wcs_Client * self, wcs_Json ** ret, struct curl_ht
 	
 	curl_easy_setopt (curl, CURLOPT_URL, upHost);
 	curl_easy_setopt (curl, CURLOPT_HTTPPOST, formpost);
+	headers = curl_slist_append (headers, userAgent);
 	curl_easy_setopt (curl, CURLOPT_HTTPHEADER, headers);
 
 	//// For aborting uploading file.
@@ -235,7 +236,14 @@ wcs_Error wcs_Io_PutBuffer (wcs_Client * self, cJSON ** ret, const char *uptoken
 	{
 		key = "";
 	}
-
+	if ((NULL != extra) && (NULL != extra->upHost))
+	{
+		LOG_TRACE("wcs_Io_PutBuffer: upHost= %s", extra->upHost);
+	}
+	else
+	{
+		LOG_TRACE("wcs_Io_PutBuffer: extra/uphost is NULL");
+	}
 	curl_formadd (&form.formpost, &form.lastptr, CURLFORM_COPYNAME, "file", CURLFORM_BUFFER, key, CURLFORM_BUFFERPTR, buf, CURLFORM_BUFFERLENGTH, fsize, CURLFORM_END);
 
 	err = wcs_Io_call (self, &root, form.formpost, extra);
@@ -278,6 +286,7 @@ static wcs_Error wcs_Io_call_with_callback (wcs_Client * self, wcs_Io_PutRet * r
 
 	curl_easy_setopt (curl, CURLOPT_URL, WCS_UP_HOST);
 	curl_easy_setopt (curl, CURLOPT_HTTPPOST, formpost);
+	headers = curl_slist_append (headers, userAgent);
 	curl_easy_setopt (curl, CURLOPT_HTTPHEADER, headers);
 	curl_easy_setopt (curl, CURLOPT_READFUNCTION, rdr);
 
