@@ -589,7 +589,7 @@ static void wcs_Io_PutExtra_initFrom (wcs_Io_PutExtra * self, wcs_Multipart_PutE
 }
 
 /*
-*	外部申请空间，大小为32
+*	澶栭儴鐢宠绌洪棿锛屽ぇ灏忎负32
 */
 void wcs_GenerateUUID (unsigned char *result, unsigned int len)
 {
@@ -599,7 +599,7 @@ void wcs_GenerateUUID (unsigned char *result, unsigned int len)
 	}
 	unsigned char t[36] = "abcdefghijklmnopqrstuvwxyz1234567890";
 	int i;
-	srand (time (NULL));		// 种子
+	srand (time (NULL));		// 绉嶅瓙
 	for (i = 0; i < 32; i++)
 		sprintf ((char *)&result[i], "%c", t[rand () % 36]);
 	return;
@@ -973,7 +973,10 @@ int wcs_Multipart_BlockCount (wcs_Int64 fsize, wcs_Int64 blockSize)
 {
 	//return (int) ((fsize + blockMask) >> blockBits);
 	if (0 == blockSize) return (int) ((fsize + blockMask) >> blockBits);
-	return (int) ((fsize /blockSize) + 1);
+	
+	// modify by liutl20180813
+	// return (int) ((fsize /blockSize) + 1);
+	return ceil((float)fsize/blockSize);
 }
 
 static void wcs_Multipart_doTask (void *params)
@@ -1162,7 +1165,7 @@ wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self,
 	blocks = (int *)malloc(sizeof(int) * uploadPatchInfo.succNum);
 	localFile = malloc(sizeof(char) * FILENAME_LEN);
 	upHost = malloc(sizeof(char) * FILENAME_LEN);
-	uploadPatchInfo.uploadBatchId = (unsigned char *)malloc(UPLOADBATCHID_LEN +1); //其它地方释放
+	uploadPatchInfo.uploadBatchId = (unsigned char *)malloc(UPLOADBATCHID_LEN +1); //鍏跺畠鍦版柟閲婃斁
        uptoken = (char *)malloc(TOKEN_LEN);
 
        for( i = 0; i < uploadPatchInfo.varCount; i++)
