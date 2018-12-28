@@ -6,6 +6,8 @@ set (BUILD_STATIC_LIBS ON CACHE BOOL "Set to ON to build static libraries (defau
 set (BUILD_X86_PLATFORM OFF CACHE BOOL "Set to ON to build for x86 platform (default: OFF)")
 set (FUNCTION_LEVEL_LINKING OFF CACHE BOOL "Set to ON to place every function in its own section to garbadge-collect unreferenced ones")
 
+MESSAGE(STATUS "Project Directory: ${PROJECT_SOURCE_DIR}")
+
 file (GLOB_RECURSE MY_SOURCE_FILES src/base/*.c src/wcs/*.c src/b64/*.c src/cJSON/*.c)
 #include_directories (wcs b64 cJSON)
 include_directories (src)
@@ -15,20 +17,32 @@ add_definitions (-g)
 set (MY_COMPILE_DEFINITIONS "")
 set (MY_COMPILE_FLAGS "")
 
+MESSAGE(STATUS "CMAKE_SOURCE_DIR:" ${CMAKE_SOURCE_DIR})
+MESSAGE(STATUS "CMAKE_SYSTEM_NAME:" ${CMAKE_SYSTEM_NAME})
+
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
 
     ## Append platform-dependent source files
     file (GLOB_RECURSE MY_WINDOWS_SOURCE_FILES windows/*.c)
     list (APPEND MY_SOURCE_FILES ${MY_WINDOWS_SOURCE_FILES})
-    include_directories (windows)
+    include_directories(${PROJECT_SOURCE_DIR}/windows/include ${PROJECT_SOURCE_DIR}/windows/include/pthread)
 
-    set (LOCAL_PACKAGE_PATH "C:/packages" CACHE PATH "Set to the path where dependent libraries (openssl / curl, etc) reside")
+    set (LOCAL_PACKAGE_PATH "${PROJECT_SOURCE_DIR}" CACHE PATH "Set to the path where dependent libraries (openssl / curl, etc) reside")
     include_directories (${LOCAL_PACKAGE_PATH}/include SYSTEM)
-    link_directories (${LOCAL_PACKAGE_PATH}/lib)
+
+    link_directories(${LOCAL_PACKAGE_PATH}/windows/lib/x64)
+    
+    MESSAGE(STATUS "LOCAL_PACKAGE_PATH: ${LOCAL_PACKAGE_PATH}")
 
     if (DEFINED BUILD_SHARED_LIBS AND ${BUILD_SHARED_LIBS})
         list (APPEND MY_COMPILE_DEFINITIONS COMPILING_WCS_LIBRARY_DLL)
     endif (DEFINED BUILD_SHARED_LIBS AND ${BUILD_SHARED_LIBS})
+
+    link_libraries(libcurl-d_imp.lib
+                    pthreadVC2.lib
+                    libeay32.lib
+                    ssleay32.lib)
+
 
 else ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
 

@@ -976,7 +976,10 @@ int wcs_Multipart_BlockCount (wcs_Int64 fsize, wcs_Int64 blockSize)
 	
 	// modify by liutl20180813
 	// return (int) ((fsize /blockSize) + 1);
-	return ceil((float)fsize/blockSize);
+	int count = 0;
+	//count = ceil((double)(fsize / blockSize));
+	count = fsize / blockSize + ((fsize % blockSize) == 0 ? 0 : 1);
+	return count;
 }
 
 static void wcs_Multipart_doTask (void *params)

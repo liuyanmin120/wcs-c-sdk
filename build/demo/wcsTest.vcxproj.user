@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerCommandArguments>3 db17ab5d18c137f786b67c490187317a0738f94a:YTk5OTlmYTFlMzMxZjc2ODA1NmQ4ODVmODJlMmZlZjc2NmNhZGU3Yw==:eyJzY29wZSI6ImhhbGV5dGVzdCIsImRlYWRsaW5lIjoiMTUzNDM4NzE4MTAwMCIsIm92ZXJ3cml0ZSI6MSwic2VwYXJhdGUiOjB9 文00.tar.gz  xshell5.0.0.4.rar http://apitest_user.up0.v1.wcsapi.com</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

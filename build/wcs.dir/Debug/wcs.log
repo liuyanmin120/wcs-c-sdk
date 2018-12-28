@@ -1,0 +1,166 @@
+﻿生成启动时间为 2018/8/16 15:55:30。
+     1>项目“E:\SDK\wcsSDK\wcs-c-sdk\build\wcs.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>CustomBuild:
+         Building Custom Rule E:/SDK/wcsSDK/wcs-c-sdk/CMakeLists.txt
+         CMake does not need to re-run because E:\SDK\wcsSDK\wcs-c-sdk\build\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"E:\SDK\wcsSDK\wcs-c-sdk\src" /I"E:\SDK\wcsSDK\wcs-c-sdk\windows\include" /I"E:\SDK\wcsSDK\wcs-c-sdk\windows\include\pthread" /I"E:\SDK\wcsSDK\wcs-c-sdk\include" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D COMPILING_WCS_LIBRARY_DLL /D "CMAKE_INTDIR=\"Debug\"" /D _AMD64_ /D wcs_EXPORTS /D _WINDLL /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"wcs.dir\Debug\\" /Fd"wcs.dir\Debug\vc120.pdb" /Gd /TC /errorReport:prompt  -g "E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\base\log.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\base\threadpool.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base_io.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\conf.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\fop.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\http.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\io.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\reader.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\tm.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\b64\b64.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\b64\urlsafe_b64.c" "E:\SDK\wcsSDK\wcs-c-sdk\src\cJSON\cJSON.c"
+     1>cl : 命令行 warning D9002: 忽略未知选项“-g”
+         inifile.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(35): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(76): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(224): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(233): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(315): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(321): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(328): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(329): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(339): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c(359): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+         log.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\log.c(100): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\time.inl(112) : 参见“localtime”的声明
+         patchfileops.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(33): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(73): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(79): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 参见“strcpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(82): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(88): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 参见“strcpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(112): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(148): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(157): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(160): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(166): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c(173): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(195) : 参见“strncpy”的声明
+         threadpool.c
+         auth_mac.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c(79): warning C4267: “函数”: 从“size_t”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c(95): warning C4018: “<”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c(97): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c(183): warning C4267: “函数”: 从“size_t”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c(192): warning C4018: “<”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c(194): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+         base.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base.c(128): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base.c(282): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(245) : 参见“strdup”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base.c(319): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(245) : 参见“strdup”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base.c(794): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 参见“fopen”的声明
+         base_io.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base_io.c(22): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base_io.c(146): warning C4267: “return”: 从“size_t”转换到“ssize_t”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base_io.c(286): warning C4267: “函数”: 从“size_t”转换到“DWORD”，可能丢失数据
+         conf.c
+         fop.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\fop.c(108): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 参见“strcpy”的声明
+         http.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\http.c(481): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(346) : 参见“_snprintf”的声明
+         io.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\io.c(64): warning C4013: “wcs_Client_reset”未定义；假设外部返回 int
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\io.c(64): warning C4047: “初始化”:“CURL *”与“int”的间接级别不同
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\io.c(271): warning C4047: “=”:“CURL *”与“int”的间接级别不同
+         multipart_io.c
+     1>e:\sdk\wcssdk\wcs-c-sdk\src\wcs\rs.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(141): warning C4047: “函数”:“pthread_mutex_t *”与“wcs_Mutex *”的间接级别不同
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(141): warning C4024: “pthread_cond_wait”: 形参和实参 2 的类型不同
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(569): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 参见“strcpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(571): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 参见“strcpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(602): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(604): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(943): warning C4244: “=”: 从“__int64”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(981): warning C4244: “=”: 从“wcs_Int64”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1083): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1084): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1268): warning C4267: “=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1273): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1286): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 参见“strcpy”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1338): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1339): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1402): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1432): warning C4267: “函数”: 从“size_t”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c(1440): warning C4267: “=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+         reader.c
+         rs.c
+     1>e:\sdk\wcssdk\wcs-c-sdk\src\wcs\rs.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(54): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(63): warning C4244: “函数”: 从“wcs_Uint64”转换到“double”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(144): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(252): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(261): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(272): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c(280): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : 参见“sprintf”的声明
+         tm.c
+         b64.c
+         urlsafe_b64.c
+         cJSON.c
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\cJSON\cJSON.c(547): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\src\cJSON\cJSON.c(688): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+         正在生成代码...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\SDK\wcsSDK\wcs-c-sdk\build\Debug\wcs.dll" /INCREMENTAL /NOLOGO /LIBPATH:"E:/SDK/wcsSDK/wcs-c-sdk/windows/lib/x64" /LIBPATH:"E:/SDK/wcsSDK/wcs-c-sdk/windows/lib/x64/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "libcurl-d_imp.lib" pthreadVC2.lib libeay32.lib ssleay32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/SDK/wcsSDK/wcs-c-sdk/build/Debug/wcs.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/SDK/wcsSDK/wcs-c-sdk/build/Debug/wcs.lib" /MACHINE:X64  /machine:x64 /debug /DLL wcs.dir\Debug\inifile.obj
+         wcs.dir\Debug\log.obj
+         wcs.dir\Debug\patchfileops.obj
+         wcs.dir\Debug\threadpool.obj
+         wcs.dir\Debug\auth_mac.obj
+         wcs.dir\Debug\base.obj
+         wcs.dir\Debug\base_io.obj
+         wcs.dir\Debug\conf.obj
+         wcs.dir\Debug\fop.obj
+         wcs.dir\Debug\http.obj
+         wcs.dir\Debug\io.obj
+         wcs.dir\Debug\multipart_io.obj
+         wcs.dir\Debug\reader.obj
+         wcs.dir\Debug\rs.obj
+         wcs.dir\Debug\tm.obj
+         wcs.dir\Debug\b64.obj
+         wcs.dir\Debug\urlsafe_b64.obj
+         wcs.dir\Debug\cJSON.obj
+            正在创建库 E:/SDK/wcsSDK/wcs-c-sdk/build/Debug/wcs.lib 和对象 E:/SDK/wcsSDK/wcs-c-sdk/build/Debug/wcs.exp
+         wcs.vcxproj -> E:\SDK\wcsSDK\wcs-c-sdk\build\Debug\wcs.dll
+     1>已完成生成项目“E:\SDK\wcsSDK\wcs-c-sdk\build\wcs.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:12.78

@@ -12,7 +12,7 @@
 #include <curl/curl.h>
 
 #if defined(_WIN32)
-#pragma comment(lib, "curllib.lib")
+//#pragma comment(lib, "curllib.lib")
 #endif
 
 /*============================================================================*/

@@ -1,0 +1,5 @@
+E:/SDK/wcsSDK/wcs-c-sdk/build/CMakeFiles/wcs_a.dir
+E:/SDK/wcsSDK/wcs-c-sdk/build/CMakeFiles/ALL_BUILD.dir
+E:/SDK/wcsSDK/wcs-c-sdk/build/demo/CMakeFiles/wcsTest.dir
+E:/SDK/wcsSDK/wcs-c-sdk/build/CMakeFiles/wcs.dir
+E:/SDK/wcsSDK/wcs-c-sdk/build/CMakeFiles/ZERO_CHECK.dir

@@ -8,7 +8,11 @@
  */
 #include "rs.h"
 #include "../cJSON/cJSON.h"
+#if defined(_WIN32)
+#include <Windows.h>
+#else
 #include <time.h>
+#endif
 #include "fop.h"
 
 /*============================================================================*/
@@ -42,11 +46,12 @@ char *wcs_RS_PutPolicy_Token (wcs_RS_PutPolicy * auth, wcs_Mac * mac)
 	{
 		expires = 3600;			// 1小时
 	}
+
 	time (&deadline);
 	deadline += expires;
 	deadline *= 1000;
 	char tmpDeadline[14];
-	sprintf (tmpDeadline, "%ld", deadline);
+	sprintf (tmpDeadline, "%lld", deadline);
 	cJSON_AddStringToObject (root, "deadline", tmpDeadline);
 
 	if (auth->saveKey)

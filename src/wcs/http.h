@@ -15,7 +15,7 @@
 #include "../base/threadpool.h"
 #include "../base/log.h"
 #include <curl/curl.h>
-
+#include <pthread/pthread.h>
 /*============================================================================*/
 /* Global */
 
@@ -44,6 +44,7 @@ extern void wcs_Servend_Cleanup ();
 #if defined(_WIN32)
 #include <windows.h>
 typedef CRITICAL_SECTION wcs_Mutex;
+typedef pthread_cond_t wcs_Cond;
 #else
 #include <pthread.h>
 typedef pthread_mutex_t wcs_Mutex;
@@ -114,7 +115,7 @@ typedef struct _wcs_multiThread_info
 	unsigned int doneBlkNum;
 	wcs_Mutex totalDoneMutex;
 	wcs_Mutex doneBlkNumMutex;
-	pthread_cond_t notify; //
+	wcs_Cond notify; //
 }wcs_multiThread_info;
 
 

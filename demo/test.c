@@ -772,9 +772,9 @@ wcs_Error wcs_Encode_Base64(int argc, char **argv)
 
 int main (int argc, char **argv)
 {
-	char interface = 0;
+	char interface_ = 0;
 	wcs_Error err = {0, "OK"};
-	copyArgvInt(argc, 1, interface);
+	copyArgvInt(argc, 1, interface_);
 	FILE *file = NULL;
 #if 0
 	char *configFile = "./config.ini";
@@ -791,7 +791,7 @@ int main (int argc, char **argv)
 	}
 #endif
 	wcs_Log_Init("./LogConfig.ini", file);
-	switch (interface)
+	switch (interface_)
 	{
 		case 1:
 			err = wcs_RS_PutPolicy_Token_Test(argc, argv);
@@ -834,7 +834,7 @@ int main (int argc, char **argv)
 		default:
 			break;
 	}
-	LOG_TRACE("Functin = %d, code = %d \n", interface, err.code);
+	LOG_TRACE("Functin = %d, code = %d \n", interface_, err.code);
 	wcs_close_Logfile(file);
 	return 0;
 }

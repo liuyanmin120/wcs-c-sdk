@@ -17,7 +17,15 @@
 #endif
 
 #ifdef _WIN32
-#include "../windows/emu_posix.h"	// for type wcs_Posix_File
+#include <Windows.h>
+#include <sys/stat.h>
+#include "Fileapi.h";
+#define wcs_Posix_Handle	HANDLE
+#define wcs_Posix_InvalidHandle	INVALID_HANDLE_VALUE
+#define wcs_Posix_Pread wcs_Posix_Pread2
+
+wcs_Posix_Handle wcs_Posix_Open(const char* file, int oflag, int mode);
+
 #else
 #include <unistd.h>
 #define wcs_Posix_Handle	int
@@ -237,12 +245,77 @@ wcs_Error wcs_File_Open (wcs_File ** pp, const char *file)
 
 #if defined(_MSC_VER)
 
-#define wcs_Posix_Pread wcs_Posix_Pread2
+wcs_Posix_Handle wcs_Posix_Open(const char* file, int oflag, int mode)
+{
+	wcs_Posix_Handle fd = CreateFileA(
+		file, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_FLAG_RANDOM_ACCESS, NULL);
+	if (fd != INVALID_HANDLE_VALUE) {
+		errno = 0;
+		return fd;
+	}
+	errno = GetLastError();
+	return INVALID_HANDLE_VALUE;
+}
 
+int wcs_Posix_Close(wcs_Posix_Handle fd)
+{
+	BOOL ret = CloseHandle(fd);
+	if (ret) {
+		errno = 0;
+		return 0;
+	}
+	errno = GetLastError();
+	return -1;
+}
+
+
+static time_t fileTime2time_t(FILETIME ft)
+{
+	ULONGLONG ll = ft.dwLowDateTime | ((ULONGLONG)ft.dwHighDateTime << 32);
+	return (time_t)((ll - 116444736000000000) / 10000000);
+}
+
+ssize_t wcs_Posix_Pread2(wcs_Posix_Handle fd, void* buf, size_t nbytes, wcs_Off_T offset)
+{
+	BOOL ret;
+	DWORD nreaded = 0;
+	DWORD tmpErrno = 0;
+	OVERLAPPED o = { 0 };
+	o.Offset = (DWORD)(offset & (~(DWORD)0));
+	o.OffsetHigh = (DWORD)((offset >> 32) & (~(DWORD)0));
+	ret = ReadFile(fd, buf, nbytes, &nreaded, &o);
+	if (ret) {
+		errno = 0;
+		return nreaded;
+	}
+	tmpErrno = GetLastError();
+	if (tmpErrno == ERROR_HANDLE_EOF) {
+		// EOF
+		return 0;
+	}
+	errno = tmpErrno;
+	return -1;
+}
+int wcs_Posix_Fstat2(wcs_Posix_Handle fd, wcs_FileInfo* buf)
+{
+	BY_HANDLE_FILE_INFORMATION fi;
+	wcs_Bool ret = GetFileInformationByHandle(fd, &fi);
+	if (ret) {
+		memset(buf, 0, sizeof(*buf));
+		buf->st_size = (wcs_Off_T)fi.nFileSizeLow | ((wcs_Off_T)fi.nFileSizeHigh << 32);
+		buf->st_atime = fileTime2time_t(fi.ftLastAccessTime);
+		buf->st_mtime = fileTime2time_t(fi.ftLastWriteTime);
+		buf->st_ctime = fileTime2time_t(fi.ftCreationTime);
+		errno = 0;
+		return 0;
+	}
+	errno = GetLastError();
+	return -1;
+}
 int wcs_Posix_Fstat (wcs_Posix_Handle fd, wcs_FileInfo * fi)
 {
 	int ret = 0;
-	Emu_FileInfo fi2;
+	wcs_FileInfo fi2;
 
 	wcs_Zero (fi2);
 	ret = wcs_Posix_Fstat2 (fd, &fi2);
@@ -258,12 +331,12 @@ int wcs_Posix_Fstat (wcs_Posix_Handle fd, wcs_FileInfo * fi)
 	return 0;
 }
 
-#else
+#endif
 
-wcs_Error wcs_File_Stat (wcs_File * self, wcs_FileInfo * fi)
+wcs_Error wcs_File_Stat(wcs_File * self, wcs_FileInfo * fi)
 {
 	wcs_Error err;
-	if (wcs_Posix_Fstat ((wcs_Posix_Handle) (size_t) self, fi) != 0)
+	if (wcs_Posix_Fstat((wcs_Posix_Handle)(size_t)self, fi) != 0)
 	{
 		err.code = errno;
 		err.message = "fstat failed";
@@ -277,8 +350,6 @@ wcs_Error wcs_File_Stat (wcs_File * self, wcs_FileInfo * fi)
 	}
 	return err;
 }
-
-#endif
 
 void wcs_File_Close (void *self)
 {

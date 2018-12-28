@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\base\inifile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\base\log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\base\patchfileops.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\base\threadpool.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\auth_mac.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\base_io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\conf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\fop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\http.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\multipart_io.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\reader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\rs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\wcs\tm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\b64\b64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\b64\urlsafe_b64.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\SDK\wcsSDK\wcs-c-sdk\src\cJSON\cJSON.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\SDK\wcsSDK\wcs-c-sdk\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E5BC055C-CEF3-3988-A938-7D3A8CC03267}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

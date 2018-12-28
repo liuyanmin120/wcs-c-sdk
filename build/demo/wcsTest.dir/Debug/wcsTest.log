@@ -1,0 +1,54 @@
+﻿生成启动时间为 2018/8/16 15:55:43。
+     1>项目“E:\SDK\wcsSDK\wcs-c-sdk\build\demo\wcsTest.vcxproj”在节点 3 上(Rebuild 个目标)。
+     1>CustomBuild:
+         Building Custom Rule E:/SDK/wcsSDK/wcs-c-sdk/demo/CMakeLists.txt
+         CMake does not need to re-run because E:\SDK\wcsSDK\wcs-c-sdk\build\demo\CMakeFiles\generate.stamp is up-to-date.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"E:\SDK\wcsSDK\wcs-c-sdk\src" /I"E:\SDK\wcsSDK\wcs-c-sdk\windows\include" /I"E:\SDK\wcsSDK\wcs-c-sdk\windows\include\pthread" /I"E:\SDK\wcsSDK\wcs-c-sdk\include" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"wcsTest.dir\Debug\\" /Fd"wcsTest.dir\Debug\vc120.pdb" /Gd /TC /errorReport:prompt  -g -g "E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c"
+     1>cl : 命令行 warning D9002: 忽略未知选项“-g”
+     1>cl : 命令行 warning D9002: 忽略未知选项“-g”
+         test.c
+     1>e:\sdk\wcssdk\wcs-c-sdk\demo\../src/wcs/rs.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(155): warning C4047: “=”:“wcs_Int64”与“const char *”的间接级别不同
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(157): warning C4244: “=”: 从“wcs_Int64”转换到“long”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(161): warning C4047: “=”:“wcs_Bool”与“const char *”的间接级别不同
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(169): warning C4047: “!=”:“void *”与“wcs_Int64”的间接级别不同
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(233): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(263): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(268): warning C4244: “=”: 从“wcs_Int64”转换到“long”，可能丢失数据
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(270): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(275): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(278): warning C4313: “printf”: 格式字符串中的“%d”与“char *”类型的参数 1 冲突
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(281): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(286): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(340): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(347): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(352): warning C4018: “<”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(355): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(360): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(365): warning C4013: “wcs_Json_GetInt”未定义；假设外部返回 int
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(368): warning C4090: “=”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(419): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(426): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(428): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(571): warning C4090: “函数”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(679): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(681): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(683): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(685): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(690): warning C4090: “函数”: 不同的“const”限定符
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(734): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(736): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(738): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(740): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(742): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(744): warning C4018: “>”: 有符号/无符号不匹配
+     1>E:\SDK\wcsSDK\wcs-c-sdk\demo\test.c(761): warning C4018: “>”: 有符号/无符号不匹配
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"E:\SDK\wcsSDK\wcs-c-sdk\build\demo\Debug\wcsTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:"E:/SDK/wcsSDK/wcs-c-sdk/windows/lib/x64" /LIBPATH:"E:/SDK/wcsSDK/wcs-c-sdk/windows/lib/x64/Debug" /LIBPATH:"E:/SDK/wcsSDK/wcs-c-sdk/build/Debug" /LIBPATH:"E:/SDK/wcsSDK/wcs-c-sdk/build/Debug/Debug" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "libcurl-d_imp.lib" pthreadVC2.lib libeay32.lib ssleay32.lib "libcurl-d_imp.lib" pthreadVC2.lib libeay32.lib ssleay32.lib wcs.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/SDK/wcsSDK/wcs-c-sdk/build/demo/Debug/wcsTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/SDK/wcsSDK/wcs-c-sdk/build/demo/Debug/wcsTest.lib" /MACHINE:X64  /machine:x64 /debug wcsTest.dir\Debug\test.obj
+         wcsTest.vcxproj -> E:\SDK\wcsSDK\wcs-c-sdk\build\demo\Debug\wcsTest.exe
+     1>已完成生成项目“E:\SDK\wcsSDK\wcs-c-sdk\build\demo\wcsTest.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.74

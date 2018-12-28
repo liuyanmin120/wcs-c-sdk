@@ -15,12 +15,14 @@ extern "C"
 #endif
 
 #ifdef _WIN32
+#include <Windows.h>
 
-#include "../windows/emu_posix.h"	// for type wcs_Posix_GetTimeOfDay
 
 WCS_DLLAPI extern wcs_Uint64 wcs_Tm_LocalTime (void)
 {
-	return wcs_Posix_GetTimeOfDay ();
+	SYSTEMTIME wtm;
+	GetLocalTime(&wtm);
+	return wtm.wSecond;
 }							// wcs
 
 #else
