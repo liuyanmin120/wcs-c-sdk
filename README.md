@@ -17,6 +17,12 @@ C SDK for wcs
 C-SDK使用了cURL, OpenSSL ,使用时需要自行安装前述依赖库。
 GCC编译选项：-lcurl -lssl -lcrypto -lm 
 如果项目编译时出现连接等错误，需要先检查依赖库和编译选项是否正确。
+
+编译步骤：
+cd build
+rm -rf ./*
+cmake ../
+make
 ```
 *注：Windows环境可使用[windows](https://github.com/Wangsu-Cloud-Storage/wcs-c-sdk/tree/master/windows)目录下提供的库进行安装*
 
