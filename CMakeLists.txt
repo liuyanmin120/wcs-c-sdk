@@ -22,6 +22,8 @@ MESSAGE(STATUS "CMAKE_SYSTEM_NAME:" ${CMAKE_SYSTEM_NAME})
 
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
 
+    add_definitions("-DHAVE_STRUCT_TIMESPEC")
+
     ## Append platform-dependent source files
     file (GLOB_RECURSE MY_WINDOWS_SOURCE_FILES windows/*.c)
     list (APPEND MY_SOURCE_FILES ${MY_WINDOWS_SOURCE_FILES})
@@ -30,7 +32,7 @@ if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
     set (LOCAL_PACKAGE_PATH "${PROJECT_SOURCE_DIR}" CACHE PATH "Set to the path where dependent libraries (openssl / curl, etc) reside")
     include_directories (${LOCAL_PACKAGE_PATH}/include SYSTEM)
 
-    link_directories(${LOCAL_PACKAGE_PATH}/windows/lib/x64)
+    link_directories(${LOCAL_PACKAGE_PATH}/windows/lib)
     
     MESSAGE(STATUS "LOCAL_PACKAGE_PATH: ${LOCAL_PACKAGE_PATH}")
 
@@ -38,7 +40,7 @@ if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows")
         list (APPEND MY_COMPILE_DEFINITIONS COMPILING_WCS_LIBRARY_DLL)
     endif (DEFINED BUILD_SHARED_LIBS AND ${BUILD_SHARED_LIBS})
 
-    link_libraries(libcurl-d_imp.lib
+    link_libraries(libcurl.lib
                     pthreadVC2.lib
                     libeay32.lib
                     ssleay32.lib)
