@@ -489,7 +489,7 @@ wcs_Error wcs_putFile_Test(int argc, char **argv)
 	wcs_Zero(extra);
 	wcs_Zero(pp);
 	wcs_Zero(mac);
-	//client.patchInfoFile = "./TestPatch.ini";
+	client.patchInfoFile = "G:/acode/work/wangsu/wcs-c-sdk/build32/demo/Debug/PatchUpload.ini";
 	index = 2;
 	copyArgv(argc, index, uptoken);
 	index++;
@@ -775,22 +775,24 @@ int main (int argc, char **argv)
 	char interface_ = 0;
 	wcs_Error err = {0, "OK"};
 	copyArgvInt(argc, 1, interface_);
+#if 1
+	char *configFile = "G:/acode/work/wangsu/wcs-c-sdk/build32/demo/Debug/config.ini";
+	int logLevel = LOG_TRACE;
+	int writeLogFile = 1;
 	FILE *file = NULL;
-#if 0
-	char *configFile = "./config.ini";
-	int logLevel = 5;
-	int writeLogFile = 0;
-	FILE *file = NULL;
-	logLevel = read_profile_int("TestLogConfig","LOG_LEVEL", 5,configFile);
+	logLevel = read_profile_int("TestLogConfig","LOG_LEVEL", logLevel, configFile);
 	log_set_level(logLevel);
-	writeLogFile =read_profile_int("TestLogConfig","WRITE_FILE", 0,configFile);
+	writeLogFile =read_profile_int("TestLogConfig","WRITE_FILE", writeLogFile, configFile);
 	if (writeLogFile)
 	{
-	    file = fopen("./sdktest.log", "a"); 
+	    file = fopen("G:/acode/work/wangsu/wcs-c-sdk/build32/demo/Debug/sdktest.log", "a"); 
 	    log_set_fp(file);
 	}
+#else
+    FILE *file = NULL;
+    wcs_Log_Init("G:/acode/work/wangsu/wcs-c-sdk/build32/demo/Debug/LogConfig.ini", file);
 #endif
-	wcs_Log_Init("./LogConfig.ini", file);
+
 	switch (interface_)
 	{
 		case 1:
