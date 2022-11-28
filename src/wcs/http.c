@@ -18,7 +18,7 @@
 /*============================================================================*/
 /* type wcs_Mutex */
 
-#if defined(_WIN32)
+#if defined(_WIN32_NO)
 
 void wcs_Mutex_Init (wcs_Mutex * self)
 {

@@ -41,7 +41,7 @@ extern void wcs_Servend_Cleanup ();
 /*============================================================================*/
 /* type wcs_Mutex */
 
-#if defined(_WIN32)
+#if defined(_WIN32_NO)
 #include <windows.h>
 typedef CRITICAL_SECTION wcs_Mutex;
 typedef pthread_cond_t wcs_Cond;
