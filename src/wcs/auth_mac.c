@@ -50,7 +50,7 @@ static wcs_Error wcs_Mac_Auth (void *self, wcs_Header ** header, const char *url
 	char *enc_digest;
 	unsigned char digest[EVP_MAX_MD_SIZE + 1];
 	unsigned int dgtlen = sizeof (digest);
-	HMAC_CTX ctx;
+	HMAC_CTX* ctx = HMAC_CTX_new();
 	wcs_Mac mac;
 
 	char const *path = strstr (url, "://");
@@ -75,18 +75,18 @@ static wcs_Error wcs_Mac_Auth (void *self, wcs_Header ** header, const char *url
 		mac.secretKey = WCS_SECRET_KEY;
 	}
 
-	HMAC_CTX_init (&ctx);
-	HMAC_Init_ex (&ctx, mac.secretKey, strlen (mac.secretKey), EVP_sha1 (), NULL);
-	HMAC_Update (&ctx, path, strlen (path));
-	HMAC_Update (&ctx, "\n", 1);
+	HMAC_CTX_reset (ctx);
+	HMAC_Init_ex (ctx, mac.secretKey, strlen (mac.secretKey), EVP_sha1 (), NULL);
+	HMAC_Update (ctx, path, strlen (path));
+	HMAC_Update (ctx, "\n", 1);
 
 	if (addlen > 0)
 	{
-		HMAC_Update (&ctx, addition, addlen);
+		HMAC_Update (ctx, addition, addlen);
 	}
 
-	HMAC_Final (&ctx, digest, &dgtlen);
-	HMAC_CTX_cleanup (&ctx);
+	HMAC_Final (ctx, digest, &dgtlen);
+	HMAC_CTX_free (ctx);
 
 	//handle digest
 	unsigned char *result;
@@ -166,7 +166,7 @@ char *wcs_Mac_Sign (wcs_Mac * self, char *data)
 	unsigned char digest[EVP_MAX_MD_SIZE + 1];
 	unsigned int dgtlen = sizeof (digest);
 	digest[EVP_MAX_MD_SIZE] = '\0';
-	HMAC_CTX ctx;
+	HMAC_CTX* ctx = HMAC_CTX_new();
 	wcs_Mac mac;
 
 	if (self)
@@ -179,11 +179,11 @@ char *wcs_Mac_Sign (wcs_Mac * self, char *data)
 		mac.secretKey = WCS_SECRET_KEY;
 	}
 
-	HMAC_CTX_init (&ctx);
-	HMAC_Init_ex (&ctx, mac.secretKey, strlen (mac.secretKey), EVP_sha1 (), NULL);
-	HMAC_Update (&ctx, (unsigned char *) data, strlen (data));
-	HMAC_Final (&ctx, (unsigned char *) digest, &dgtlen);
-	HMAC_CTX_cleanup (&ctx);
+	HMAC_CTX_reset (ctx);
+	HMAC_Init_ex (ctx, mac.secretKey, strlen (mac.secretKey), EVP_sha1 (), NULL);
+	HMAC_Update (ctx, (unsigned char *) data, strlen (data));
+	HMAC_Final (ctx, (unsigned char *) digest, &dgtlen);
+	HMAC_CTX_free (ctx);
 
 	//handle digest
 	unsigned char *result;
