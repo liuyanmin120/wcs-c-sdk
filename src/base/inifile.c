@@ -11,6 +11,12 @@
 #include <string.h>
 #include <ctype.h>
 
+#if defined(_WIN32)
+#include <malloc.h>
+#else
+#include <sys/malloc.h>
+#endif
+
 #include "inifile.h"
 
 #ifdef __cplusplus
@@ -206,49 +212,56 @@ static int parse_file(const char *section, const char *key, const char *buf,int 
 int read_profile_string( const char *section, const char *key,char *value, 
 		 int size, const char *default_value, const char *file)
 {
-	char buf[MAX_FILE_SIZE]={0};
-	int file_size;
-	int sec_s,sec_e,key_s,key_e, value_s, value_e;
+    char *buf;
+    int file_size;
+    int sec_s, sec_e, key_s, key_e, value_s, value_e;
 
-	//check parameters
-	assert(section != NULL && strlen(section));
-	assert(key != NULL && strlen(key));
-	assert(value != NULL);
-	assert(size > 0);
-	assert(file !=NULL &&strlen(key));
+    //check parameters
+    assert(section != NULL && strlen(section));
+    assert(key != NULL && strlen(key));
+    assert(value != NULL);
+    assert(size > 0);
+    assert(file != NULL &&strlen(key));
 
-	if(!load_ini_file(file,buf,&file_size))
-	{
-		if(default_value!=NULL)
-		{
-			strncpy(value,default_value, size);
-		}
-		return 0;
-	}
+    buf = (char *)malloc(MAX_FILE_SIZE);
+    memset(buf, 0, MAX_FILE_SIZE);
 
-	if(!parse_file(section,key,buf,&sec_s,&sec_e,&key_s,&key_e,&value_s,&value_e))
-	{
-		if(default_value!=NULL)
-		{
-			strncpy(value,default_value, size);
-		}
-		return 0; //not find the key
-	}
-	else
-	{
-		int cpcount = value_e -value_s;
+    if (!load_ini_file(file, buf, &file_size))
+    {
+        if (default_value != NULL)
+        {
+            strncpy(value, default_value, size);
+        }
+        free(buf);
+        return 0;
+    }
 
-		if( size-1 < cpcount)
-		{
-			cpcount =  size-1;
-		}
-	
-		memset(value, 0, size);
-		memcpy(value,buf+value_s, cpcount);
-		value[cpcount] = '\0';
+    if (!parse_file(section, key, buf, &sec_s, &sec_e, &key_s, &key_e, &value_s, &value_e))
+    {
+        if (default_value != NULL)
+        {
+            strncpy(value, default_value, size);
+        }
+        free(buf);
+        return 0; //not find the key
+    }
+    else
+    {
+        int cpcount = value_e - value_s;
 
-		return 1;
-	}
+        if (size - 1 < cpcount)
+        {
+            cpcount = size - 1;
+        }
+
+        memset(value, 0, size);
+        memcpy(value, buf + value_s, cpcount);
+        value[cpcount] = '\0';
+
+        free(buf);
+
+        return 1;
+    }
 }
 
 /**
@@ -285,8 +298,13 @@ int read_profile_int( const char *section, const char *key,int default_value,
 int write_profile_string(const char *section, const char *key,
 					const char *value, const char *file)
 {
-	char buf[MAX_FILE_SIZE]={0};
-	char w_buf[MAX_FILE_SIZE]={0};
+    char *buf;
+    char *w_buf;
+    buf = (char *)malloc(MAX_FILE_SIZE);
+    w_buf = (char *)malloc(MAX_FILE_SIZE);
+    memset(buf, 0, MAX_FILE_SIZE);
+    memset(w_buf, 0, MAX_FILE_SIZE);
+
 	int sec_s,sec_e,key_s,key_e, value_s, value_e;
 	//int value_len = (int)strlen(value);
 	int value_len = 0;
@@ -339,15 +357,21 @@ int write_profile_string(const char *section, const char *key,
 	out = fopen(file,"w");
 	if(NULL == out)
 	{
+        free(buf);
+        free(w_buf);
 		return 0;
 	}
 	
 	if(-1 == fputs(w_buf,out) )
 	{
+        free(buf);
+        free(w_buf);
 		fclose(out);
 		return 0;
 	}
 
+    free(buf);
+    free(w_buf);
 	fclose(out);
 	return 1;
 }

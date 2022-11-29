@@ -6,7 +6,11 @@
 * @version 0.2
 */
 #include <stdio.h>
+#if defined(_WIN32)
 #include <malloc.h>
+#else
+#include <sys/malloc.h>
+#endif
 #include "inifile.h"
 #include "../wcs/multipart_io.h"
 
