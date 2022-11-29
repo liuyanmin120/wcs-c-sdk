@@ -390,6 +390,15 @@ CURL *wcs_Client_reset (wcs_Client * self, CURL *mycurl)
 static CURL *wcs_Client_initcall (wcs_Client * self, const char *url, CURL *mycurl)
 {
 	CURL *curl = wcs_Client_reset (self, mycurl);
+    // solve return curl truncation bug
+    if (NULL != mycurl)
+    {
+        curl = mycurl;
+    }
+    else
+    {
+        curl = (CURL *) self->curl;
+    }
 
 	if (HTTP_METHOD_GET == self->method)
 	{

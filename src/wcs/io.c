@@ -62,6 +62,8 @@ static wcs_Error wcs_Io_call (wcs_Client * self, wcs_Json ** ret, struct curl_ht
 	const char *upHost = NULL;
 
 	CURL *curl = wcs_Client_reset (self, NULL);
+    // solve return curl truncation bug
+    curl = (CURL *) self->curl;
 
 	// Bind the NIC for sending packets.
 	if (self->boundNic != NULL)
@@ -269,6 +271,8 @@ static wcs_Error wcs_Io_call_with_callback (wcs_Client * self, wcs_Io_PutRet * r
 	CURL *curl = NULL;
 
 	curl = wcs_Client_reset (self, NULL);
+    // solve return curl truncation bug
+    curl = (CURL *) self->curl;
 
 	// Bind the NIC for sending packets.
 	if (self->boundNic != NULL)
