@@ -1117,8 +1117,7 @@ static wcs_Error ErrPutInterrupted = {
 	wcs_Multipart_PutInterrupted, "multipart put interrupted"
 };
 
-wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self, 
-	wcs_Multipart_PutRet * ret)
+wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self, wcs_Multipart_PutRet* ret, wcs_Multipart_PutExtra* extra)
 {
 	wcs_Error err;
 	char *bucket = NULL;
@@ -1130,7 +1129,6 @@ wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self,
 	int *blocks = NULL;
 	unsigned int i = 0;
 	wcs_PatchInfo uploadPatchInfo;
-	wcs_Multipart_PutExtra extra;
 	wcs_Io_PutExtraParam *head = NULL;
 	wcs_Io_PutExtraParam *node = NULL;
 
@@ -1142,7 +1140,6 @@ wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self,
 	}
 
 	wcs_Zero(uploadPatchInfo);
-	wcs_Zero(extra);
 
 	if (NULL != configFile)
 	{
@@ -1215,15 +1212,15 @@ wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self,
 	    err.message = "Get upToken error";
 	    return err;
 	}
-	extra.patchInfo = &uploadPatchInfo;
-	extra.localFileName = localFile;
-	extra.upHost = upHost;
-	extra.blockSize = uploadPatchInfo.blockSize;
-	extra.chunkSize = uploadPatchInfo.chunkSize;
-	//extra.uploadBatch = uploadPatchInfo.uploadBatchId;
-	extra.params = uploadPatchInfo.param;
+	extra->patchInfo = &uploadPatchInfo;
+	extra->localFileName = localFile;
+	extra->upHost = upHost;
+	extra->blockSize = uploadPatchInfo.blockSize;
+	extra->chunkSize = uploadPatchInfo.chunkSize;
+	//extra->uploadBatch = uploadPatchInfo.uploadBatchId;
+	extra->params = uploadPatchInfo.param;
 			
-	err = wcs_Multipart_PutFile (self, ret, uptoken, key, localFile, &extra);
+	err = wcs_Multipart_PutFile (self, ret, uptoken, key, localFile, extra);
 	free(bucket);
 	free(key);
 	free(blocks);
@@ -1233,8 +1230,8 @@ wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self,
 	bucket = NULL;
 	key = NULL;
 	blocks = NULL;
-	extra.localFileName = NULL;
-	extra.patchInfo = NULL;
+	extra->localFileName = NULL;
+	extra->patchInfo = NULL;
 	if (NULL != uptoken)
 	{
 		free((void *)uptoken);

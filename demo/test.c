@@ -553,11 +553,13 @@ wcs_Error wcs_Multipart_Test(int  argc, char **argv)
 wcs_Error wcs_Patchupload_Test(int argc, char **argv)
 {
     wcs_Client client;
+    wcs_Multipart_PutExtra extra;
     wcs_Multipart_PutRet ret;
     char *configFile = NULL;
     wcs_Error err = { 200, "OK" };
 
     wcs_Zero(ret);
+    wcs_Zero(extra);
     wcs_Zero(client);
 
     wcs_Global_Init(0);
@@ -565,7 +567,7 @@ wcs_Error wcs_Patchupload_Test(int argc, char **argv)
     wcs_Client_InitNoAuth(&client, 4096);
     copyArgv(argc, 2, configFile);
 
-    err = wcs_Multipart_UploadCheck(configFile, &client, &ret);
+    err = wcs_Multipart_UploadCheck(configFile, &client, &ret, &extra);
 
     wcs_Client_Cleanup(&client);
     wcs_Free(ret.persistentId);
