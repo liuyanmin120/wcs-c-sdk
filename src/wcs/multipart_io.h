@@ -227,8 +227,7 @@ int getVarCount(const char *file);
 
 	WCS_DLLAPI extern wcs_Error wcs_Multipart_PutFile (wcs_Client * self, wcs_Multipart_PutRet * ret, const char *uptoken, const char *key, const char *localFile, wcs_Multipart_PutExtra * extra);
 
-WCS_DLLAPI extern wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self, 
-	wcs_Multipart_PutRet * ret);
+    WCS_DLLAPI extern wcs_Error wcs_Multipart_UploadCheck(const char *configFile, wcs_Client * self, wcs_Multipart_PutRet* ret, wcs_Multipart_PutExtra* extra);
 
 /*============================================================================*/
 
