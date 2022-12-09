@@ -110,6 +110,7 @@ wcs_Error wcs_callex (CURL * curl, wcs_Buffer * resp, wcs_Json ** ret, wcs_Bool 
 		curlCode = curl_easy_setopt (curl, CURLOPT_HEADERFUNCTION, wcs_Buffer_Fwrite);
 		curlCode = curl_easy_setopt (curl, CURLOPT_WRITEHEADER, resph);
 	}
+    curl_easy_setopt(curl, CURLOPT_TIMEOUT, 300); // 5m
 
 	curlCode = curl_easy_perform (curl);
 	if (curlCode == 0)
