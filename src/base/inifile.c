@@ -24,7 +24,7 @@ extern "C"
 {
 #endif
 
-#define MAX_FILE_SIZE 1024*256
+#define MAX_FILE_SIZE 1024*1024*5
 #define LEFT_BRACE '['
 #define RIGHT_BRACE ']'
 const char config_array[5][5] = {"0000", "000", "00", "0", ""};
