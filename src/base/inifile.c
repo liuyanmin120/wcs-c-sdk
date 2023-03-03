@@ -344,7 +344,8 @@ int write_profile_string(const char *section, const char *key,
 		//not find the key, then add the new key=value at end of the section
 		memcpy(w_buf,buf,sec_e);
 		sprintf(w_buf+sec_e,"%s=%s\n",key,value);
-		sprintf(w_buf+sec_e+strlen(key)+strlen(value)+2,buf+sec_e, file_size - sec_e);
+        // modify by liuym sprintf crash bug
+        memcpy(w_buf+sec_e+strlen(key)+strlen(value)+2,buf+sec_e, file_size - sec_e);
 	}
 	else
 	{

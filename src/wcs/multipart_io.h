@@ -32,10 +32,10 @@ extern "C"
 //#define wcs_Multipart_MaxQueueNum		256
 
 #define Default_ConfigFile "./PatchUpload.ini"
-#define FILENAME_LEN 512
-#define BUCKET_LEN 128
-#define KEY_LEN 512
-#define TOKEN_LEN 1500
+#define FILENAME_LEN 1024
+#define BUCKET_LEN 512
+#define KEY_LEN 1500
+#define TOKEN_LEN 2500
 
 /*============================================================================*/
 /* type wcs_Multipart_WaitGroup */
