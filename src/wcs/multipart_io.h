@@ -28,7 +28,7 @@ extern "C"
 #define wcs_Multipart_InvalidPutProgress	9901
 #define wcs_Multipart_PutFailed				9902
 #define wcs_Multipart_PutInterrupted		9903
-#define wcs_Multipart_MaxThreadNum	8	
+#define wcs_Multipart_MaxThreadNum	3	
 //#define wcs_Multipart_MaxQueueNum		256
 
 #define Default_ConfigFile "./PatchUpload.ini"
